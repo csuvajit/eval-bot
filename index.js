@@ -4,7 +4,7 @@ const vm = require("vm");
 const codeContext =  {};
 vm.createContext(codeContext);
 const client = new Discord.Client();
-const prefix = "E" || process.env.DISCORD_PREFIX;
+const prefix = "E" || "?" || process.env.DISCORD_PREFIX;
 
 client.on("ready", () => {
   console.log("Bot is online!");
@@ -15,7 +15,7 @@ client.on("message", async(message) => {
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
-	if(command === 'val') {
+	if(command === 'val' || 'eval') {
 		 const code = args.join(" ");
   const token = client.token.split("").join("[^]{0,2}");
   const rev = client.token.split("").reverse().join("[^]{0,2}");
