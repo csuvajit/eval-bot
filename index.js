@@ -33,7 +33,7 @@ client.on("message", async(message) => {
     }
   } catch (error) {
     message.channel.send(`The following error occured \`\`\`js\n${error}\`\`\``);
- }
+  }
 
   function clean(text)  {
     return text
@@ -49,9 +49,9 @@ help :: shows this page
 invite :: to invite this bot
 
 Disclaimer:
-This bot is an eval which runs ANY javascript code which is like users can even wreck your server mass DM or anything so use it at your own risk I'm not responsible if someone did a malicious code that destroys your server. For safety the invite link does not add any permissions to the bot it's up to you to give it permissions if you want but as i said at your own risk i'm not responsible for bad things happening in your server. KEEP IT NO PERMISSIONS FOR SAFETY, and those hackers reading this don't think of hacking me, the token is safe, and I'm using heroku which doesn't give access to my files and it's free host thing idc much.`, {code: "asciidoc"});
+This bot is an eval which runs ANY javascript code which is like users can even wreck your server mass DM or anything so use it at your own risk i'm not responsible if someone did a malicious code that destroys your server. For safety the invite link does not add any permissions to the bot it's up to you to give it permissions if you want but as i said at your own risk i'm not responsible for bad things happening in your server. KEEP IT NO PERMISSIONS FOR SAFETY, and those hackers reading this don't think of hacking me, the token is safe, and I'm using heroku which doesn't give access to my files and it's free host thing idc much.`, {code: "asciidoc"});
 	} else if(command === "invite") {
-		message.channel.send("By inviting me to your server, you agree that I'm not responsible for any damage on your server, for safety the URL doesn't grant the bot any permissions\nhttps://discordapp.com/api/oauth2/authorize?client_id=" + client.user.id + "&permissions=0&scope=bot")
+		message.channel.send("By inviting me to your server you agree that I'm not responsible for any damage on your server for safety the URL doesn't grant the bot any permissions\nhttps://discordapp.com/api/oauth2/authorize?client_id=" + client.user.id + "&permissions=0&scope=bot")
 	} else if(command === "beval") {
     try {
   let evaled = vm.runInContext(args.join(" "), codeContext);
