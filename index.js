@@ -8,7 +8,7 @@ const prefix = process.env.DISCORD_PREFIX;
 
 client.on("ready", () => {
   console.log("Bot is online!");
-  client.user.setActivity(`eval`, {type: "STREAMING"});
+  client.user.setActivity(`eval`, {type:"STREAMING"});
 });
 
 client.on("message", async(message) => {
