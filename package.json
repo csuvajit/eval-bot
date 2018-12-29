@@ -1,32 +1,27 @@
 {
   "name": "evalbot",
   "version": "1.0.0",
-  "engines": {
-    "node": "11.5.0"
-  },
-  "description": "simple discord.js eval bot",
+  "description": "A simple discord.js eval bot.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/freetnt5852/EvalBot.git"
-  },
-  "keywords": [
-    "eval",
-    "discord"
-  ],
   "dependencies": {
     "discord.js": "^11.4.2",
     "superagent": "^3.8.3",
     "util": "^0.11.1",
     "vm": "^0.1.0"
   },
-  "author": "Free TNT",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/freetnt5852/EvalBot/issues"
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/freetnt5852/EvalBot#readme"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xsuvajit/evalbot_discord.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xsuvajit/evalbot_discord.js/issues"
+  },
+  "homepage": "https://github.com/xsuvajit/evalbot_discord.js#readme"
 }
