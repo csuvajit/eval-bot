@@ -4,7 +4,7 @@ const vm = require("vm");
 const codeContext =  {};
 vm.createContext(codeContext);
 const client = new Discord.Client();
-const prefix = process.env.DISCORD_PREFIX;
+const prefix = "E" || process.env.DISCORD_PREFIX;
 
 client.on("ready", () => {
   console.log("Bot is online!");
