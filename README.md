@@ -2,7 +2,7 @@
 A simple discord.js eval bot.
 
 # Invite
-[Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=411952600586649602&permissions=0&scope=bot)
+[Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=525210889297723412&permissions=0&scope=bot)
 Invite at your own risk as its a public bot anyone can mess up your server i'm not responsible for any harm.
 
 # Own Instance
