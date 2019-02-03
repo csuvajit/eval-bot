@@ -100,7 +100,7 @@ client.on("message", async (message) => {
     
   } else if (command === 'npm') {
     let pkg = args.join(' ');
-    const res = await fetch(`${npmEndpoint}/${pkg}`);
+    const res = await fetch(`${process.env.npmEndpoint}/${pkg}`);
     if (res.status === 404) return;
     const body = await res.json();
 		if (body.time.unpublished) {
