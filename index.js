@@ -72,9 +72,11 @@ client.on("message", async (message) => {
 		const res = await fetch(`${process.env.djsEndpoint}/${project}/${branch}/embed?${queryString}`);
 		const embed = await res.json();
     if (!embed) return;
-		await message.channel.send({ embed });
+    await message.channel.send({ embed });
+    
   } else if (command === 'mdn') {
-    const query = args[0];
+
+    const query = args.join(' ');
     const queryString = qs.stringify({ q: query });
 		const res = await fetch(`${process.env.mdnEndpoint}?${queryString}`);
 		const body = await res.json();
