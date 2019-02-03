@@ -8,6 +8,7 @@
     "node-fetch": "^2.3.0",
     "querystring": "^0.2.0",
     "superagent": "^3.8.3",
+    "turndown": "^5.0.3",
     "util": "^0.11.1",
     "vm": "^0.1.0"
   },

@@ -5,6 +5,7 @@ const codeContext =  {};
 vm.createContext(codeContext);
 const fetch =  require('node-fetch');
 const qs = require('querystring');
+const Turndown = require('turndown');
 const client = new Discord.Client();
 const prefix = process.env.DISCORD_PREFIX;
 
@@ -72,6 +73,26 @@ client.on("message", async (message) => {
 		const embed = await res.json();
     if (!embed) return;
 		await message.channel.send({ embed });
+  } else if (command === 'mdn') {
+    const query = args[0];
+    const queryString = qs.stringify({ q: query });
+		const res = await fetch(`${process.env.mdnEndpoint}?${queryString}`);
+		const body = await res.json();
+		if (!body.URL || !body.Title || !body.Summary) return;
+		const turndown = new Turndown();
+		turndown.addRule('hyperlink', {
+			filter: 'a',
+			replacement: (text, node) => `[${text}](https://developer.mozilla.org${node.href})`
+		});
+		const summary = body.Summary.replace(/<code><strong>(.+)<\/strong><\/code>/g, '<strong><code>$1<\/code><\/strong>');
+		const embed = new Discord.RichEmbed()
+			.setColor(0x066FAD)
+			.setAuthor('MDN', 'https://i.imgur.com/DFGXabG.png', 'https://developer.mozilla.org/')
+			.setURL(`https://developer.mozilla.org${body.URL}`)
+			.setTitle(body.Title)
+			.setDescription(turndown.turndown(summary));
+
+		return message.channel.send(embed);
   }
 	
 });
