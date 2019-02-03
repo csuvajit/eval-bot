@@ -18,7 +18,7 @@ client.on("message", async(message) => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
-	if(command === ['eval', 'e']) {
+	if(command === 'e' || command === 'eval') {
 
 	  const code = args.join(" ");
     const token = client.token.split("").join("[^]{0,2}");
