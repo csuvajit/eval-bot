@@ -20,19 +20,22 @@ client.on("message", async(message) => {
   
 	if(command === 'e' || command === 'eval') {
 
-	  const code = args.join(" ");
+    const code = args.join(" ");
+    if (!code) return;
     const token = client.token.split("").join("[^]{0,2}");
     const rev = client.token.split("").reverse().join("[^]{0,2}");
     const filter = new RegExp(`${token}|${rev}`, "g");
+    const filter_ = new RegExp(`${process.env.TOKEN}`, "g");
 
     try {
+
       let output = eval(code);
 
       if (output instanceof Promise || (Boolean(output) && typeof output.then === "function" && typeof output.catch === "function")) output = await output;
 
         output = inspect(output, { depth: 0, maxArrayLength: null });
         output = output.replace(filter, "[TOKEN]");
-        output = output.replace(/process.env.TOKEN/g, '[TOKEN]')
+        output = output.replace(filter_, '[TOKEN]')
         output = clean(output);
 
       if (output.length < 1950) {
