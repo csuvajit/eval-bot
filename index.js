@@ -68,7 +68,7 @@ client.on("message", async (message) => {
 			branch = 'master';
 		}
 		const queryString = qs.stringify({ q: args.join(' ') });
-		const res = await fetch(`https://djsdocs.sorta.moe/${project}/${branch}/embed?${queryString}`);
+		const res = await fetch(`${process.env.djsEndpoint}/${project}/${branch}/embed?${queryString}`);
 		const embed = await res.json();
     if (!embed) return;
 		await message.channel.send({ embed });
