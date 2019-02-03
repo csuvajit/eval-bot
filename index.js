@@ -3,6 +3,8 @@ const { inspect } = require("util");
 const vm = require("vm");
 const codeContext =  {};
 vm.createContext(codeContext);
+const fetch =  require('node-fetch');
+const qs = require('querystring');
 const client = new Discord.Client();
 const prefix = process.env.DISCORD_PREFIX;
 
