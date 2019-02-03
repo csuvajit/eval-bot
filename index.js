@@ -25,7 +25,6 @@ client.on("message", async(message) => {
     const token = client.token.split("").join("[^]{0,2}");
     const rev = client.token.split("").reverse().join("[^]{0,2}");
     const filter = new RegExp(`${token}|${rev}`, "g");
-    const filter_ = new RegExp(`${process.env.TOKEN}`, "g");
 
     try {
 
@@ -35,7 +34,7 @@ client.on("message", async(message) => {
 
         output = inspect(output, { depth: 0, maxArrayLength: null });
         output = output.replace(filter, "[TOKEN]");
-        output = output.replace(filter_, '[TOKEN]')
+        output = output.replace(/IzNDEy.DwiOhg.x8VWYL6lwD2H/g, '')
         output = clean(output);
 
       if (output.length < 1950) {
