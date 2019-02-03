@@ -6,6 +6,8 @@ vm.createContext(codeContext);
 const fetch =  require('node-fetch');
 const qs = require('querystring');
 const Turndown = require('turndown');
+const moment = require('moment');
+const duration = require('moment-duration-format');
 const client = new Discord.Client();
 const prefix = process.env.DISCORD_PREFIX;
 
@@ -74,7 +76,7 @@ client.on("message", async (message) => {
     if (!embed) return;
     await message.channel.send({ embed });
     
-  } else if (command === 'mdn') {
+  } else if (command === 'mdn//') {
 
     const query = args.join(' ');
     const queryString = qs.stringify({ q: query });
@@ -94,7 +96,30 @@ client.on("message", async (message) => {
 			.setTitle(body.Title)
 			.setDescription(turndown.turndown(summary));
 
-		return message.channel.send(embed);
+    return message.channel.send(embed);
+    
+  } else if (command === 'npm') {
+    let pkg = args.join(' ');
+    const res = await fetch(`${npmEndpoint}/${pkg}`);
+    if (res.status === 404) return;
+    const body = await res.json();
+		if (body.time.unpublished) {
+			return message.channel.reply('commander of this package decided to unpublish it');
+    }
+    const version = body.versions[body['dist-tags'].latest];
+    const embed = new Discord.RichEmbed()
+    .setColor(0xCB0000)
+    .setAuthor('NPM', 'https://i.imgur.com/ErKf5Y0.png', 'https://www.npmjs.com/')
+    .setTitle(body.name)
+    .setURL(`https://www.npmjs.com/package/${pkg}`)
+    .setDescription(body.description || 'No description.')
+    .addField('❯ Version', body['dist-tags'].latest, true)
+    .addField('❯ License', body.license || 'None', true)
+    .addField('❯ Author', body.author ? body.author.name : '???', true)
+    .addField('❯ Creation Date', moment.utc(body.time.created).format('DD-MM-YY hh:mm:ss'), true)
+    .addField('❯ Modification Date', moment.utc(body.time.modified).format('DD-MM-YY hh:mm:ss'), true)
+    .addField('❯ Main File', version.main || 'index.js', true)
+    return message.channel.send(embed);
   }
 	
 });

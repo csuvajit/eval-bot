@@ -5,6 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "discord.js": "^11.4.2",
+    "moment": "^2.24.0",
+    "moment-duration-format": "^2.2.2",
     "node-fetch": "^2.3.0",
     "querystring": "^0.2.0",
     "superagent": "^3.8.3",
