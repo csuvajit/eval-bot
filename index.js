@@ -4,6 +4,7 @@ const vm = require("vm");
 const codeContext =  {};
 vm.createContext(codeContext);
 const client = new Discord.Client();
+const { RichEmbed } = require('discord.js');
 const prefix = process.env.DISCORD_PREFIX;
 
 client.on("ready", () => {
