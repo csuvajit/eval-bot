@@ -3,11 +3,6 @@ const { inspect } = require("util");
 const vm = require("vm");
 const codeContext =  {};
 vm.createContext(codeContext);
-const fetch =  require('node-fetch');
-const qs = require('querystring');
-const Turndown = require('turndown');
-const moment = require('moment');
-const duration = require('moment-duration-format');
 const client = new Discord.Client();
 const prefix = process.env.DISCORD_PREFIX;
 
@@ -61,66 +56,7 @@ client.on("message", async (message) => {
 
 	} else if(command === "invite") {
     return message.channel.send("By inviting me to your server you agree that I'm not responsible for any damage on your server for safety the URL doesn't grant the bot any permissions\nhttps://discordapp.com/api/oauth2/authorize?client_id=" + client.user.id + "&permissions=0&scope=bot");
-    
-	} else if (command === 'docs') {
-
-		let project = 'main';
-		let branch = ['stable', 'master', 'rpc', 'commando'].includes(args.slice(-1)[0]) ? args.pop() : 'stable';
-		if (['rpc', 'commando'].includes(branch)) {
-			project = branch;
-			branch = 'master';
-		}
-		const queryString = qs.stringify({ q: args.join(' ') });
-		const res = await fetch(`${process.env.djsEndpoint}/${project}/${branch}/embed?${queryString}`);
-		const embed = await res.json();
-    if (!embed) return;
-    await message.channel.send({ embed });
-    
-  } else if (command === 'mdn//') {
-
-    const query = args.join(' ');
-    const queryString = qs.stringify({ q: query });
-		const res = await fetch(`${process.env.mdnEndpoint}?${queryString}`);
-		const body = await res.json();
-		if (!body.URL || !body.Title || !body.Summary) return;
-		const turndown = new Turndown();
-		turndown.addRule('hyperlink', {
-			filter: 'a',
-			replacement: (text, node) => `[${text}](https://developer.mozilla.org${node.href})`
-		});
-		const summary = body.Summary.replace(/<code><strong>(.+)<\/strong><\/code>/g, '<strong><code>$1<\/code><\/strong>');
-		const embed = new Discord.RichEmbed()
-			.setColor(0x066FAD)
-			.setAuthor('MDN', 'https://i.imgur.com/DFGXabG.png', 'https://developer.mozilla.org/')
-			.setURL(`https://developer.mozilla.org${body.URL}`)
-			.setTitle(body.Title)
-			.setDescription(turndown.turndown(summary));
-
-    return message.channel.send(embed);
-    
-  } else if (command === 'npm') {
-    let pkg = args.join(' ');
-    const res = await fetch(`${process.env.npmEndpoint}/${pkg}`);
-    if (res.status === 404) return;
-    const body = await res.json();
-		if (body.time.unpublished) {
-			return message.channel.reply('commander of this package decided to unpublish it');
-    }
-    const version = body.versions[body['dist-tags'].latest];
-    const embed = new Discord.RichEmbed()
-    .setColor(0xCB0000)
-    .setAuthor('NPM', 'https://i.imgur.com/ErKf5Y0.png', 'https://www.npmjs.com/')
-    .setTitle(body.name)
-    .setURL(`https://www.npmjs.com/package/${pkg}`)
-    .setDescription(body.description || 'No description.')
-    .addField('❯ Version', body['dist-tags'].latest, true)
-    .addField('❯ License', body.license || 'None', true)
-    .addField('❯ Author', body.author ? body.author.name : '???', true)
-    .addField('❯ Creation Date', moment.utc(body.time.created).format('DD-MM-YY hh:mm:ss'), true)
-    .addField('❯ Modification Date', moment.utc(body.time.modified).format('DD-MM-YY hh:mm:ss'), true)
-    .addField('❯ Main File', version.main || 'index.js', true)
-    return message.channel.send(embed);
-  }
+	}
 	
 });
 
