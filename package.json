@@ -14,13 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xsuvajit/evalbot_discord.js.git"
+    "url": "git+https://github.com/isuvajit/evalbot_discord.js.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xsuvajit/evalbot_discord.js/issues"
+    "url": "https://github.com/isuvajit/evalbot_discord.js/issues"
   },
-  "homepage": "https://github.com/xsuvajit/evalbot_discord.js#readme"
+  "homepage": "https://github.com/isuvajit/evalbot_discord.js#readme"
 }
