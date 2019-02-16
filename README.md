@@ -1,12 +1,11 @@
-# EvalBot
-A simple discord.js eval bot.
+# Purple <img src="https://cdn.discordapp.com/avatars/526971716711350273/df4891e105916a637d52d0014de03e76.webp" align="right">
+> A discord bot written in discord.js-akairo framework
 
-# Invite
-[Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=525210889297723412&permissions=0&scope=bot)
-Invite at your own risk as its a public bot anyone can mess up your server i'm not responsible for any harm.
+I'll get into filling this out later, gotta stay tuned for now~
 
-# Own Instance
-Its more safer to make your own instance however I'm not going in depth in all steps
-Simply clone the bot and call `npm i` inside the directory you cloned, and run it with `node index.js` make sure you added your bot token in it, as i said I'm not going in depth tutorial you must already know some basic node and discord bot making.
-Good luck.
+[![BUILT OPERATE TRANSFER](https://discordapp.com/api/guilds/524672414261444623/embed.png?style=banner2)](https://discord.gg/PuGpC8W)
 
+## Author
+
+**Purple** © [isuvajit](https://github.com/isuvajit).  
+Authored and maintained by Suvajit
