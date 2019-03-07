@@ -1,11 +1,10 @@
 const Discord = require("discord.js");
-const { inspect } = require("util");
-const vm = require("vm");
-const codeContext =  {};
-vm.createContext(codeContext);
 const client = new Discord.Client();
-const { RichEmbed } = require('discord.js');
-const prefix = process.env.DISCORD_PREFIX;
+const { inspect } = require("util");
+const vm = require("vm"); vm.createContext(codeContext);
+const codeContext =  {};
+
+const { RichEmbed } = require('discord.js'); const embed = new RichEmbed();
 
 client.on("ready", () => {
   console.log(`LOGGED IN AS : ${client.user.tag}`);
@@ -14,6 +13,7 @@ client.on("ready", () => {
 
 client.on("message", async (message) => {
 
+  const prefix = process.env.DISCORD_PREFIX;
   if(!message.content.startsWith(prefix)) return;
   if (message.author.bot) return;
   
