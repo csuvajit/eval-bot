@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const { inspect } = require("util");
-const vm = require("vm"); vm.createContext(codeContext);
+const vm = require("vm"); 
 const codeContext =  {};
-
+vm.createContext(codeContext);
 const { RichEmbed } = require('discord.js'); const embed = new RichEmbed();
 
 client.on("ready", () => {
