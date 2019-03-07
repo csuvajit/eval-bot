@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "discord.js": "^11.4.2",
+    "discord.js": "discordjs/discord.js",
     "util": "^0.11.1",
     "vm": "^0.1.0"
   },
