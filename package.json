@@ -1,26 +1,19 @@
 {
-  "name": "evalbot",
+  "name": "eval.js",
   "version": "1.0.0",
   "description": "A simple discord.js eval bot.",
   "main": "index.js",
-  "author": "SUVAJIT#5580",
-  "license": "UNLICENSED",
+  "author": "SUVAJIT (esuvajit@gmail.com)",
+  "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "lint": "eslint --fix ./"
   },
   "dependencies": {
-    "discord.js": "^11.4.2",
-    "util": "^0.12.0",
-    "vm": "^0.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/isuvajit/evalbot_discord.js.git"
-  },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/isuvajit/evalbot_discord.js/issues"
-  },
-  "homepage": "https://github.com/isuvajit/evalbot_discord.js#readme"
+    "discord.js": "^11.5.1",
+    "eslint": "^6.2.1",
+    "eslint-config-aqua": "^6.0.2",
+    "util": "^0.12.1"
+  }
 }
