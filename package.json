@@ -1,14 +1,15 @@
 {
-  "name": "eval.js",
+  "name": "eval.bot",
   "version": "1.0.0",
-  "description": "A simple discord.js eval bot.",
-  "main": "index.js",
-  "author": "SUVAJIT (esuvajit@gmail.com)",
+  "description": "Simple Discord.JS Eval Bot",
+  "main": "src/index.js",
+  "author": "SUVAJIT (suvajit.me@gmail.com)",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node index.js",
-    "lint": "eslint --fix ./"
+    "start": "node src/index.js",
+    "test": "eslint src/",
+    "build": "eslint --fix src/"
   },
   "dependencies": {
     "discord.js": "^11.5.1",
