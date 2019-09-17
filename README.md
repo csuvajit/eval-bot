@@ -1,2 +1,2 @@
-# eval.js
-A discord.js eval bot
+# Eval Bot
+Simple `discord.js` Eval Bot
