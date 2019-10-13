@@ -14,7 +14,6 @@
   "dependencies": {
     "discord.js": "discordjs/discord.js",
     "eslint": "^6.2.1",
-    "eslint-config-aqua": "^6.0.2",
-    "util": "^0.12.1"
+    "eslint-config-super": "^1.0.0"
   }
 }
