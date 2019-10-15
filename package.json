@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "eslint src/",
-    "build": "eslint --fix src/"
+    "lint": "eslint --fix src/"
   },
   "dependencies": {
     "discord.js": "discordjs/discord.js",
