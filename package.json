@@ -14,6 +14,6 @@
   "dependencies": {
     "discord.js": "discordjs/discord.js",
     "eslint": "^6.2.1",
-    "eslint-config-mars": "^1.0.2"
+    "eslint-config-mars": "^1.0.3"
   }
 }
